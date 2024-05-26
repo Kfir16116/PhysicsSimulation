@@ -61,7 +61,7 @@ plot_images()
 
 # Add slider
 axred = fig.add_axes([0.3, 0.2, 0.45, 0.05])
-red = Slider(axred, hebrew('זווית'), 0.0, 180, 90)
+red = Slider(ax=axred, label=hebrew('זווית'), valmin=0, valmax=180, valinit=90)
 red.on_changed(update)
 
 plt.grid(True)
