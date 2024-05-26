@@ -45,7 +45,7 @@ def plot_images():
     ax.text(1.3,1.14, hebrew("השתקפות"), verticalalignment='bottom', horizontalalignment='right')
     ax.plot(1.4,0.99, 'k_', lw=4)
     ax.text(1.3,0.94, hebrew("מראה"), verticalalignment='bottom', horizontalalignment='right')
-    ax.text(0.3,1.15, f"{num_images} :{hebrew("כמות של השתקפויות")}", verticalalignment='bottom', horizontalalignment='right')
+    ax.text(0.3,1.15, f"{num_images} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
 
     # Calculate and plot images (create reflections)
     try:
