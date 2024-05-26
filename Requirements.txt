@@ -1,0 +1,4 @@
+Requirements:
+
+- matplotlib (pip install matplotlib)
+- numpy (pip install numpy)
