@@ -1,4 +1,6 @@
 Requirements:
 
-- matplotlib (pip install matplotlib)
-- numpy (pip install numpy)
+- matplotlib (pip/pip3 install matplotlib)
+- numpy (pip/pip3 install numpy)
+
+Python version used: Python 3.12
