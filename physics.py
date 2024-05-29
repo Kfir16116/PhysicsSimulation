@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from matplotlib.widgets import Slider
+from matplotlib.widgets import Slider, Button
 import numpy as np
 
 def hebrew(text):
@@ -16,6 +16,11 @@ def update(val):
     # Update plot
     ax.cla()
     plot_images()
+
+def reset_button_func(val):
+    angle_slider.set_val(90)
+    update(90)
+    plt.draw()
 
 def rotation(num, angle):
     if num == 1:
@@ -49,8 +54,8 @@ def plot_images():
         ax.plot(ref_mirror2[:, 0], ref_mirror2[:, 1], 'k--', lw=2, alpha=0.3)
 
     # Plotting trapezoids representing the object
-    obj = np.array([[0.5, -0.1], [0.6, 0.1], [0.4, 0.1], [0.4, -0.1], [0.5,-0.1],[0.4,-0.1]]) 
-    ax.plot(obj[:, 0], obj[:, 1], 'b-')
+    obj = np.array([[0.5, 0.1],[0.6, 0.1] ,[0.6,-0.1],[0.6, 0.1] ,[0.6,-0.1],[0.4,-0.1], [0.5,0.1],[0.4,-0.1]]) 
+    ax.plot(obj[:, 0], obj[:, 1], 'r-')
 
     # Bug fixes
     if angle > 120:
@@ -89,10 +94,9 @@ def plot_images():
     ax.plot(1.4, 0.99, 'k_', lw=4)
     ax.text(1.3, 0.94, hebrew("מראה"), verticalalignment='bottom', horizontalalignment='right')
     ax.text(1.47, 0.76, hebrew("--- השתקפות של מראה"), verticalalignment='bottom', horizontalalignment='right')
-    ax.text(0.3, 1.15, f"(360/{num_of_reflections} - 1) {num_of_reflections} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
+    ax.text(0.45, 1.15, f"(360/{num_of_reflections} - 1)   {num_of_reflections} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
 
 fig, ax = plt.subplots()
-
 angle = 90
 num_images = calculate_images(angle)
 plot_images()
@@ -101,5 +105,9 @@ plot_images()
 ax_slider = fig.add_axes([0.3, 0.2, 0.45, 0.05])
 angle_slider = Slider(ax=ax_slider, label=hebrew('זווית'), valmin=0, valmax=180, valinit=90)
 angle_slider.on_changed(update)
+# Add button
+ax_button = fig.add_axes([0.45, 0.14, 0.15, 0.05])
+reset_button = Button(ax=ax_button, label=hebrew("אתחול"), color="white")
+reset_button.on_clicked(reset_button_func)
 
 plt.show()
