@@ -17,8 +17,6 @@ def update(val):
     ax.cla()
     plot_images()
 
-fig, ax = plt.subplots()
-
 def rotation(num, angle):
     if num == 1:
         return np.array([[np.cos(np.radians(angle)), np.sin(np.radians(angle))],
@@ -92,6 +90,8 @@ def plot_images():
     ax.text(1.3, 0.94, hebrew("מראה"), verticalalignment='bottom', horizontalalignment='right')
     ax.text(1.47, 0.76, hebrew("--- השתקפות של מראה"), verticalalignment='bottom', horizontalalignment='right')
     ax.text(0.3, 1.15, f"(360/{num_of_reflections} - 1) {num_of_reflections} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
+
+fig, ax = plt.subplots()
 
 angle = 90
 num_images = calculate_images(angle)
