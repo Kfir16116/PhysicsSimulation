@@ -94,7 +94,7 @@ def plot_images():
     ax.plot(1.4, 0.99, 'k_', lw=4)
     ax.text(1.3, 0.94, hebrew("מראה"), verticalalignment='bottom', horizontalalignment='right')
     ax.text(1.47, 0.76, hebrew("--- השתקפות של מראה"), verticalalignment='bottom', horizontalalignment='right')
-    ax.text(0.45, 1.15, f"(360/{angle} - 1)   {num_of_reflections} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
+    ax.text(0.45, 1.15, f"(360/{angle} - 1)   {num_images} :{hebrew('כמות של השתקפויות')}", verticalalignment='bottom', horizontalalignment='right')
 
 fig, ax = plt.subplots()
 angle = 90
