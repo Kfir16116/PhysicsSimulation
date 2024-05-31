@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from matplotlib.widgets import Slider, Button, TextBox, CheckButtons
+from matplotlib.widgets import Slider, Button, TextBox
 import numpy as np
 
 def hebrew(text):
@@ -22,8 +22,8 @@ def reset_button_func(val):
     update(90)
 
 def angle_text_box(val):
-    angle_slider.set_val(int(val))
-    update(int(val))
+    angle_slider.set_val(float(val))
+    update(float(val))
 
 def rotation(num, angle):
     if num == 1:
@@ -112,5 +112,9 @@ angle_slider.on_changed(update)
 ax_reset_button = fig.add_axes([0.45, 0.14, 0.15, 0.05])
 reset_button = Button(ax=ax_reset_button, label=hebrew("אתחול"), color="white")
 reset_button.on_clicked(reset_button_func)
+# Add textbox
+ax_text_box = fig.add_axes([0.3, 0.14, 0.1, 0.05])
+text_box = TextBox(ax=ax_text_box, label=hebrew(' זווית'))
+text_box.on_submit(angle_text_box)
 
 plt.show()
